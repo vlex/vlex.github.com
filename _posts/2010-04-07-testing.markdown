@@ -1,0 +1,7 @@
+---
+layout: post
+title: Testing, or how I fit a Cucumber in 200k lines of Ruby code
+author: claudiob
+---
+
+Where I talk about Cucumber, Selenium, Capybara, Webrat.
