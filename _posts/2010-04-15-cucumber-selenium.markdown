@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cucumber, Selenium, Webrat, Integrity: herramientas para testar páginas web
+title: Cucumber, Selenium, Webrat, Integrity\: herramientas para testar páginas web
 author: claudiob
 ---
 
