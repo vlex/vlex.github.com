@@ -50,7 +50,7 @@ El trabajo del programador de tests es *definir los pasos* que componen las hist
 Definir pasos de manera interna
 ===============================
 
-Una manera para definir pasos es trabajar de forma interna con la página web.
+Una manera para definir pasos es trabajar de forma interna a la página web.
 Por ejemplo, un paso como "Cuando creo un usuario 'guest'" se puede definir como un comando SQL:
 
 > `INSERT INTO Users (name) VALUES "guest"`
@@ -97,7 +97,7 @@ Por ejemplo, activando el plugin en Firefox y ejecutando a mano las acciones nec
 >
 > `page.wait_for_page_to_load "30000"`
 
-La herramienta complementaria a Selenium IDE es [Selenium Web Driver](http://code.google.com/p/selenium/wiki/GettingStarted). Mientras la prima sirve para *grabar* secuencia de acciones, la segunda permite escribir programas que *ejecutan* estas acciones de forma automática. Selenium Web Driver se integra con muchos lenguajes de programación, entre ellos Ruby gracias a la  gem [selenium client](http://selenium-client.rubyforge.org/). 
+La herramienta complementaria a Selenium IDE es [Selenium Web Driver](http://code.google.com/p/selenium/wiki/GettingStarted). Mientras la primera sirve para *grabar* secuencia de acciones, la segunda permite escribir programas que *ejecutan* estas acciones de forma automática. Selenium Web Driver se integra con muchos lenguajes de programación, entre ellos Ruby gracias a la  gem [selenium client](http://selenium-client.rubyforge.org/). 
 
 Escribir tests con Cucumber + Selenium
 ======================================
@@ -117,7 +117,7 @@ Definir pasos con una sintaxis más natural
 
 Selenium IDE es muy útil para empezar, ya que permite ejecutar los tests a mano en Firefox y luego simplemente copiar y pegar las secuencias de acciones del browser a la suite de test.
 
-Cuando el número de tests crece, todavía, este procedimiento manual puede resultar lento, y es más inmediato definir pasos directamente en la suite de test. La sintáxis que utiliza Selenium para esto no es totalmente intuitiva. Como visto antes, las acciones correspondientes a crear un usuario "guest" se definen como:
+Cuando el número de tests crece, todavía, este procedimiento manual puede resultar lento, y es más inmediato definir pasos directamente en la suite de test. La sintáxis que utiliza Selenium para esto no es totalmente intuitiva. Como en el ejemplo anterior, las acciones correspondientes a crear un usuario "guest" se definen como:
 
 > `page.open "/"`
 >
@@ -158,7 +158,7 @@ Las tres herramientas para escribir y ejecutar una suite de test se reparten el 
 
 La ventaja de utilizar Webrat como capa entre Cucumber y Selenium es que, si necesario, Webrat también puede funcionar *sin Selenium*, es decir, ejecutar las acciones de navegación directamente, a través de llamadas HTTP en lugar de esperar que Selenium abra un browser y reproduzca todas las acciones.
 
-La modalidad Webrat sin Selenium es más reducida que la modalidad Webrat::Selenium (por ejemplo, no puede ejecutar Javascript o confirmar mensajes de alerta) y menos intuitiva (los errores no se pueden capturar como pantallas de un browser) pero es mucho más rápida, lo que puede ser útil cuando el numero de tests es muy grande.
+La modalidad Webrat sin Selenium es más limitada que la modalidad Webrat::Selenium (por ejemplo, no puede ejecutar Javascript o confirmar mensajes de alerta) y menos intuitiva (los errores no se pueden capturar como pantallas de un browser) pero es mucho más rápida, lo que puede ser útil cuando el numero de tests es muy grande.
 
 Averiguar condiciones esperadas
 ===============================
@@ -176,7 +176,7 @@ Cuando un test no pasa, Selenium permite guardar la imagen del browser en el mom
 
 - @bug: cuando la página web está diseñada para ofrecer una función, pero no lo hace
 
-- @wish: cuando el test espera que la página ofrezca una función que no se ha plantead como requerimiento fundamental de la misma
+- @wish: cuando el test espera que la página ofrezca una función que no se ha planteado como requerimiento fundamental de la misma
 
 En el caso de un bug, el paso siguiente es señalarlo a los programadores para que lo resuelvan. En el caso de un wish, el paso siguiente es decidir si es útil implementarlo o se puede dejar como anotación.
 
@@ -187,12 +187,12 @@ Integración continua
 
 Una vez escrita la suite de test, el último pasa es ejecutarla, arreglar los fallos, y ejecutarla otra vez, hasta que todas las historias *pasen*. Esto permite saber que **en este momento** la página web cumple todas las expectativas.
 
-Claramente, ejecutar la suite de test sólo una vez no es suficiente, ya que una página web cambia en continuación. Idealmente hay que ejecutar los tests cada vez que algo cambia en el código de la página web.
+Claramente, ejecutar la suite de test sólo una vez no es suficiente, ya que una página web cambia continuamente. Idealmente hay que ejecutar los tests cada vez que algo cambia en el código de la página web.
 
 Este es el objetivo de una herramienta de *integración continua* llamado [Integrity](http://integrityapp.com). Integrity es una aplicación web que se preocupa de ejecutar toda la suite de test cada vez que recibe un mensaje HTTP POST. 
 La manera más natural de trabajar es instalar Integrity en un servidor web y añadir un post-receive hook al repositorio que contiene el código de la página web (por ejemplo [GitHub](http://help.github.com/post-receive-hooks/)).
 De esta forma, cualquier cambio en el código hace que Integrity ejecute todos los tests otra vez.
 
-Integrity enseña los resultados de cada test una interfaz web, pero también admite notificación por e-mail, por lo que es posible recibir un mensaje cada vez que los tests fallan, y reaccionar inmediatamente.
+Integrity enseña los resultados de cada test mediante una interfaz web, pero también admite notificación por e-mail, por lo que es posible recibir un mensaje cada vez que los tests fallan, y reaccionar inmediatamente.
 
 
