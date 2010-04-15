@@ -4,7 +4,7 @@ title: "Cucumber, Selenium, Webrat, Integrity: herramientas para testar páginas
 author: claudiob
 ---
 
-Para garantizar la calidad de cualquier página web, es útil tener una **suite de test** que simulen el comportamiento de los usuarios. U suite de test averigua de forma automática que la página web cumpla con sus requisitos. 
+Para garantizar la calidad de cualquier página web, es útil tener una *suite de test* que simulen el comportamiento de los usuarios. Una suite de test averigua de forma automática que la página web cumpla con sus requisitos. 
 
 ## Escribir historias
 
@@ -173,7 +173,7 @@ En ambos casos, es útil *etiquetar* la historia como @bug o @wish, para que con
 
 ## Integración continua
 
-Una vez escrita la suite de test, el último pasa es ejecutarla, arreglar los fallos, y ejecutarla otra vez, hasta que todas las historias *pasen*. Esto permite saber que **en este momento** la página web cumple todas las expectativas.
+Una vez escrita la suite de test, el último pasa es ejecutarla, arreglar los fallos, y ejecutarla otra vez, hasta que todas las historias *pasen*. Esto permite saber que *en este momento* la página web cumple todas las expectativas.
 
 Claramente, ejecutar la suite de test sólo una vez no es suficiente, ya que una página web cambia continuamente. Idealmente hay que ejecutar los tests cada vez que algo cambia en el código de la página web.
 
